@@ -63,5 +63,31 @@ int main(int argc, char* argv[]) {
 
     cout << "Sequential Dijkstra, n=" << n << ", time=" << elapsed << " s" << endl;
 
+    n = 2500;
+    if (argc > 1) n = atoi(argv[1]);
+    density = 0.2;
+    src = 0;
+
+    g = generate_graph(n, density);
+    start = chrono::high_resolution_clock::now();
+    dist = dijkstra(n, g, src);
+    end = chrono::high_resolution_clock::now();
+    elapsed = chrono::duration<double>(end - start).count();
+
+    cout << "Sequential Dijkstra, n=" << n << ", time=" << elapsed << " s" << endl;
+
+    n = 5000;
+    if (argc > 1) n = atoi(argv[1]);
+    density = 0.2;
+    src = 0;
+
+    g = generate_graph(n, density);
+    start = chrono::high_resolution_clock::now();
+    dist = dijkstra(n, g, src);
+    end = chrono::high_resolution_clock::now();
+    elapsed = chrono::duration<double>(end - start).count();
+
+    cout << "Sequential Dijkstra, n=" << n << ", time=" << elapsed << " s" << endl;
+
     return 0;
 }
